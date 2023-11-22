@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Dogily_v2.Models.Category>
+
+
+@{
+    var goods = Model.Where(s => s.For == "Dog" || s.For == "Cat").Select(s => s);
+    var cafe = Model.Where(s => s.For == "Cafe").Select(s => s);
+    var service = Model.Where(s => s.For == "Service").Select(s => s);
+}
+<div class="container col-5">
+    <h1 style="font-size: 2rem; font-weight: 600; text-align: center" class="m-2 mt-3">
+        <sup style="color: #fcb000; font-size: 2.3rem; font-weight: 900">___</sup>
+        PHỤ KIỆN CHÓ MÈO, THÚ CƯNG
+        <sup style="color: #fcb000; font-size: 2.3rem; font-weight: 900">___</sup>
+    </h1>
+</div>
+<div class="container col-10">
+    <div class="row" style="margin: 1% 0;">
+        @foreach (var item in goods)
+        {
+            <a href="@Url.Action("ViewProduct", "Products", new {id = item.IDCate})" class="col-xl-3 col-lg-4 col-sm-6 g-3 footer_link" style="text-align: center;">
+                <img src="@Html.DisplayFor(modelItem => item.Image)" class="img-fluid rounded" />
+                <p style="margin: 2% 0; font-weight: 600">@Html.DisplayFor(modelItem => item.NameCate)</p>
+            </a>
+        }
+    </div>
+</div>
+
+<div class="container col-5 mt-5">
+    <h1 style="font-size: 2rem; font-weight: 600; text-align: center" class="m-2 mt-3">
+        <sup style="color: #fcb000; font-size: 2.3rem; font-weight: 900">___</sup>
+        CAFE CHÓ MÈO, THÚ CƯNG
+        <sup style="color: #fcb000; font-size: 2.3rem; font-weight: 900">___</sup>
+    </h1>
+</div>
+<div class="container col-10">
+    <div class="row" style="margin: 1% 0;">
+        @foreach (var item in cafe)
+        {
+            <a href="/Home/Category" class="col-xl-3 col-lg-4 col-sm-6 g-3 footer_link" style="text-align: center;">
+                <img src="@Html.DisplayFor(modelItem => item.Image)" class="img-fluid rounded" />
+                <p style="margin: 2% 0; font-weight: 600">@Html.DisplayFor(modelItem => item.NameCate)</p>
+            </a>
+        }
+    </div>
+</div>
+
+<div class="container col-5 mt-5">
+    <h1 style="font-size: 2rem; font-weight: 600; text-align: center" class="m-2 mt-3">
+        <sup style="color: #fcb000; font-size: 2.3rem; font-weight: 900">___</sup>
+        DỊCH VỤ THÚ CƯNG
+        <sup style="color: #fcb000; font-size: 2.3rem; font-weight: 900">___</sup>
+    </h1>
+</div>
+<div class="container col-10 mb-5">
+    <div class="row" style="margin: 1% 0;">
+        @foreach (var item in service)
+        {
+            <a href="/Home/Category" class="col-xl-3 col-lg-4 col-sm-6 g-3 footer_link" style="text-align: center;">
+                <img src="@Html.DisplayFor(modelItem => item.Image)" class="img-fluid rounded" />
+                <p style="margin: 2% 0; font-weight: 600">@Html.DisplayFor(modelItem => item.NameCate)</p>
+            </a>
+        }
+    </div>
+</div>

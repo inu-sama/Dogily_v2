@@ -1,0 +1,99 @@
+﻿@model Dogily_v2.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CusName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CusPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CusPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CusEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CusEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City1.CityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City1.CityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.District1.DistrictName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.District1.DistrictName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discount.DiscountName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discount.DiscountName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDOrder }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

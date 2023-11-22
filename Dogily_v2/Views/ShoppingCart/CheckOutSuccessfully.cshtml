@@ -1,0 +1,22 @@
+﻿@model Dogily_v2.Models.ViewModel.Cart
+
+@{
+    ViewBag.Title = "CheckOutSuccessfully";
+    Layout = "~/Views/Shared/MasterLayout.cshtml";
+}
+
+
+<div class="row my-5">
+    <div class="col-8 p-5" style="text-align: center; border: 5px dashed #fcb000">
+        <h1 class="text-primary-emphasis" style="font-weight: 700">Mua hàng thành công!!!</h1>
+        <h3 class="text-primary-emphasis">Cảm ơn đã mua hàng!</h3>
+        <div class="row">
+            <h4 class="text-warning col-8">Đơn hàng sẽ được giao trong 3-5 ngày</h4>
+            @Html.ActionLink("Index", "Home", null, new { @class = "col-4 btn btn-outline-warning" })
+        </div>
+    </div>
+    <div class="col-4">
+        <img src="https://dogily.vn/wp-content/uploads/2020/07/dogily-logo.png" alt="Dogily Petshop – Chó mèo cảnh, thú cưng" class="mt-5 img-fluid rounded" />
+    </div>
+</div>
+

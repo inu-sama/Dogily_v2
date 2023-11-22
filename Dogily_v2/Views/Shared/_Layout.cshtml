@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - INU</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-warning">
+        <div class="container">
+            @Html.ActionLink("Admin Page", "Index", "Home", new { area = "" }, new { @class = "navbar-brand text-primary" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li>@Html.ActionLink("Category", "Index", "Categories", new { area = "" }, new { @class = "nav-link text-primary" })</li>
+                    <li>@Html.ActionLink("Product", "Index", "Products", new { area = "" }, new { @class = "nav-link text-primary" })</li>
+                    <li>@Html.ActionLink("Images", "Index", "ProImgs", new { area = "" }, new { @class = "nav-link text-primary" })</li>
+                    <li>@Html.ActionLink("User", "Index", "Users", new { area = "" }, new { @class = "nav-link text-primary" })</li>
+                    <li>@Html.ActionLink("Detail", "Index", "ProductDetails", new { area = "" }, new { @class = "nav-link text-primary" })</li>
+                    <li>@Html.ActionLink("Country", "Index", "Countries", new { area = "" }, new { @class = "nav-link text-primary" })</li>
+                    <li>@Html.ActionLink("Brand", "Index", "Brands", new { area = "" }, new { @class = "nav-link text-primary" })</li>
+                    <li>@Html.ActionLink("Order", "Index", "Orders", new { area = "" }, new { @class = "nav-link text-primary" })</li>
+                    <li>@Html.ActionLink("OrderDetail", "Index", "OrderDetails", new { area = "" }, new { @class = "nav-link text-primary" })</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Inu's web</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/bootstrap.js"></script>
+</body>
+</html>

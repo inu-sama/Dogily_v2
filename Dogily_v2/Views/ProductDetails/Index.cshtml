@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Dogily_v2.Models.ProductDetail>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RemainAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ingredients)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand.About)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weight1.Weight1)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RemainAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ingredients)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Brand.About)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Weight1.Weight1)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProDeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProDeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProDeID })
+        </td>
+    </tr>
+}
+
+</table>

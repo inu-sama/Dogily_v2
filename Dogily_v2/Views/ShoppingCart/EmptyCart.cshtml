@@ -1,0 +1,74 @@
+﻿@model Dogily_v2.Models.ViewModel.Cart
+
+
+@{
+    ViewBag.Title = "ShoppingCart";
+    Layout = "~/Views/Shared/MasterLayout.cshtml";
+    ViewBag.TotalPro = 0;
+}
+
+<div class="container col-10">
+    <div class="row">
+        <div class="col-7 g-4 mb-5">
+            <div class="row py-1 my-1" style="border-bottom: 2px solid #c0c0c0">
+                <div class="col-5">
+                    <b>SẢN PHẨM</b>
+                </div>
+                <div class="col-2 px-5">
+                    <b>GIÁ</b>
+                </div>
+                <div class="col-3 px-5">
+                    <b>SỐ LƯỢNG</b>
+                </div>
+                <div class="col-2">
+                    <b>TẠM TÍNH</b>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-4 p-0">
+                    @Html.ActionLink("← TIẾP TỤC XEM SẢN PHẨM", "Index", "Home", new { @class = "btn btn-outline-warning" })
+                </div>
+                <div class="col-4">
+                    <button disabled class="btn btn-warning">CẬP NHẬT GIỎ HÀNG</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-5 g-4 mb-5">
+            <div class="row p-1 m-1" style="border-bottom: 2px solid #c0c0c0">
+                <div class="col-12">
+                    <b>CỘNG GIỎ HÀNG</b>
+                </div>
+            </div>
+            <div class="row p-1 m-1 mt-3" style="border-bottom: 1px solid #c0c0c0">
+                <div class="col-6">
+                    Tạm tính
+                </div>
+                <div class="col-6" style="text-align: right; font-size: 1.3rem; color: #f80000; font-weight: 700">
+                    785,000<sup>₫</sup>
+                </div>
+            </div>
+            <div class="row p-1 m-1" style="border-bottom: 2px solid #c0c0c0">
+                <div class="col-6">
+                    Tổng
+                </div>
+                <div class="col-6" style="text-align: right; font-size: 1.3rem; color: #f80000; font-weight: 700">
+                    785,000<sup>₫</sup>
+                </div>
+            </div>
+            <a href="/Home/Checkout" class="btn m-3" style="background-color: #000099; color: #fff; font-weight: 600; width: 95%">
+                TIẾN HÀNH THANH TOÁN
+            </a>
+            <p style="text-align: left; font-weight: 600; border-bottom: 2px solid #c0c0c0; margin: 0;">
+                <i class="fa-solid fa-tag fa-flip-horizontal" style="color: #c0c0c0"></i>
+                Phiếu ưu đãi
+            </p>
+            <input class="form-control my-3" style="" type="text" id="voucher" value="" placeholder="Mã ưu đãi" />
+            <button class="btn btn-outline-secondary col-12 mb-5">Áp dụng</button>
+        </div>
+    </div>
+</div>
+
+
+
+

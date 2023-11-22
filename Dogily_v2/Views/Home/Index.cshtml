@@ -1,0 +1,24 @@
+﻿
+
+@{
+    ViewBag.Title = "Dogily Pet Shop";
+    Layout = "~/Views/Shared/MasterLayout.cshtml";
+}
+<div class="container-fluid p-0" style="overflow: hidden; height: 580px; position: relative">
+    <video src="https://dogily.vn/wp-content/uploads/2021/10/dogilybanner002.mp4" autoplay preload="auto" muted style="width: 100%; height: fit-content;" loop></video>
+    <div style="width: 50%; position: absolute; z-index: 99; top: 25%; margin: 0 25%;" class="container">
+        <h1 style="color: #fcb000; font-size: 4rem; margin: 0 0.5% 3%;">
+            Dogily.vn
+        </h1>
+        <p style="color: #fff">
+            <b>Dogily – Pets are Family:</b> Trang web chia sẻ về kinh nghiệm chăm sóc, huấn luyện chó mèo và giới thiệu các sản phẩm dịch vụ dành cho thú cưng.
+        </p>
+        <button type="button" class="btn p-3 m-2" style="background-color: #fcb000; color: #fff; font-weight: 600">CHÓ CẢNH</button>
+        <button type="button" class="btn p-3 m-2" style="background-color: #000099; color: #fff; font-weight: 600">MÈO CẢNH</button>
+    </div>
+</div>
+
+@Html.Partial("~/Views/Categories/ViewCategories.cshtml")
+
+@Html.Partial("~/Views/Home/CaringVideos.cshtml")
+

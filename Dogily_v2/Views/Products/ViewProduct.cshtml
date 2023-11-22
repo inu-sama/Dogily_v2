@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Dogily_v2.Models.Product>
+
+@{
+    ViewBag.Title = "ViewProduct";
+    Layout = "~/Views/Shared/MasterLayout.cshtml";
+}
+
+
+<div class="container col-10 mt-3">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            var mainImg = from selectedImg in item.ProImgs
+                          where selectedImg.MainImg == true
+                          select selectedImg.ImgURL;
+            <a @*href="/Home/ProductDetail"*@ href="@Url.Action("DetailProduct", "DetailProVM", new {id = item.IDPro})" class="col-3 g-3 footer_link" style="text-align: center">
+                <img src="@Html.DisplayFor(model => mainImg)" class="img-fluid rounded" />
+                <p align="center" style="margin: 2% 0; font-weight: 600; width: 90%; margin: 2% 5% 0;">
+                    @Html.DisplayFor(model => item.Title)
+                </p>
+                <p style="font-size: 1.2rem; font-weight: 600; color: #f80000; padding: 0;">@Html.DisplayFor(model => item.Price)<sup>₫</sup></p>
+            </a>
+        }
+    </div>
+</div>

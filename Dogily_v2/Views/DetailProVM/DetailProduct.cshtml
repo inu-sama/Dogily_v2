@@ -1,0 +1,145 @@
+﻿@model Dogily_v2.Models.ViewModel.DetailProVM
+
+@{
+    ViewBag.Title = "DetailProduct";
+    Layout = "~/Views/Shared/MasterLayout.cshtml";
+}
+
+
+<div class="container-fluid" style="border-bottom: 1px solid #c0c0c0;">
+    <div class="container col-10">
+        <div class="row">
+            <div class="col-6 g-4 p-3">
+                @Html.Partial("GetImgList")
+            </div>
+            <div class="col-6 g-4">
+                <p class="pro_nav">
+                    <a href="/Home/Index">Trang chủ</a> /
+                    <a href="/Products/ViewProduct/@Model.IDCate">@Html.DisplayFor(model => model.NameCate)</a>
+                </p>
+                <h3 style="margin: 0; padding-bottom: 2%; border-bottom: 1px solid #fcb000; font-weight: 600">@Html.DisplayFor(model => model.Title)</h3>
+                <p class="p-3 my-0">
+                    <a class="footer_link" style="font-size: 1.1rem;" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <i class="fa-solid fa-chevron-down"></i>
+                        Mô tả
+                    </a>
+                </p>
+                <div class="collapse" id="collapseExample">
+                    <div class="container col-11">
+                        <h2 style="font-weight: 600" class="mb-4">@Html.DisplayFor(model => model.Title)</h2>
+                        <p><b>Mã sản phẩm: </b>@Html.DisplayFor(model => model.IDPro)</p>
+                        <b>Thông tin sản phẩm: </b>
+                        <p class="mt-3">Xuất xứ: @Html.DisplayFor(model => model.CountryName)</p>
+                        <p>Thương hiệu: @Html.DisplayFor(model => model.BrandName)</p>
+                        <p>Khối lượng: @Html.DisplayFor(model => model.Weight)g</p>
+                        <p>Nguyên liệu: @Html.DisplayFor(model => model.Ingredients)</p>
+                        <p>@Html.DisplayFor(model => model.BrandName), @Html.DisplayFor(model => model.About)</p>
+                        <h5 style="font-weight: 600">Cách Sử Dụng</h5>
+                        <ul style="line-height: 2rem;">
+                            <li>Cho thú ăn trực tiếp.</li>
+                            <li>Bảo quản nơi khô ráo, thoáng mát. Bịt kín miệng túi sau khi sử dụng.</li>
+                        </ul>
+                        <b>ĐỊA CHỈ LIÊN HỆ</b>
+                        <ul style="line-height: 2rem;">
+                            <li>81-95 Nghi Tàm, phường Yên Phụ, quận Tây Hồ, Tp Hà Nội. <a class="footer_link" target="_blank" href="https://maps.app.goo.gl/ie9SrRTj55v4QoXV9">Chỉ đường</a></li>
+                            <li>606/121 đường Ba Tháng Hai, phường 14, quận 10, thành phố Hồ Chí Minh. <a class="footer_link" target="_blank" href="https://maps.app.goo.gl/2TuWvRAC1zaSAwhY7">Chỉ đường</a></li>
+                            <li>171 Quang Trung, phường 10, quận Gò Vấp, thành phố Hồ Chí Minh. <a class="footer_link" target="_blank" href="https://maps.app.goo.gl/Fuiouifk6A42yUJx9">Chỉ đường</a></li>
+                            <li>Hotline: <a class="footer_link" href="#">0965086079</a></li>
+                            <li><a class="footer_link" target="_blank" href="https://dogily.vn/">https://dogily.vn/</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="p-3 my-0">
+                    <a class="footer_link" style="font-size: 1.1rem;" data-bs-toggle="collapse" href="#description" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <i class="fa-solid fa-chevron-down"></i>
+                        Đánh giá (<span class="comment_count">0</span>)
+                    </a>
+                </p>
+                <div class="collapse" id="description">
+                    <div class="container col-11">
+                        <h5 style="font-weight: 600">Đánh giá</h5>
+                        <p>Chưa có đánh giá nào.</p>
+                    </div>
+                </div>
+                <p class="mt-3" style="color: #f80000; font-size: 1.2rem; font-weight: 700;">@Html.DisplayFor(model => model.Price)<sup>₫</sup></p>
+                <div class="row">
+                    <div class="btn-group col-2" role="group">
+                        <button type="button" class="btn btn-outline-secondary btn-sm" onclick="decrease()">
+                            <i class="fa-solid fa-minus" style="font-size: 0.5rem"></i>
+                        </button>
+                        <button type="button" class="btn product_amount" disabled>1</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" onclick="increase()">
+                            <i class="fa-solid fa-plus" style="font-size: 0.5rem"></i>
+                        </button>
+                    </div>
+                    <div class="col-5">
+                        <a href="@Url.Action("AddToCart", "ShoppingCart", new {IDPro = Model.IDPro})" class="btn" style="background-color: #000099; color: #fff; font-weight: 600; width: 95%">
+                            THÊM VÀO GIỎ HÀNG
+                        </a>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-4 g-3">
+                        <button type="button" class="btn px-4 py-2 mx-3" style="background-color: #d69704; color: #fff; font-weight: 600; font-size: 1.1rem;">
+                            <i class="fa-solid fa-phone"></i>
+                            GỌI NGAY
+                        </button>
+                    </div>
+                    <div class="col-6 g-3">
+                        <button type="button" class="btn chat px-4 py-2">
+                            <i class="fa-solid fa-user"></i>
+                            CHAT VỚI DOGILY
+                        </button>
+                    </div>
+                </div>
+                <div class="container col-12 mt-3 mb-4 rounded" style="border: 1px solid #f80000; box-shadow: 0 -1px 0 #f80000; padding: 0;">
+                    <div class="py-3" style="text-align: center; background-color: #f2f2f2">
+                        <b>Tham khảo thêm</b>
+                    </div>
+                    <div class="rounded m-3" style="background-color: #f8efef">
+                        <ul style="line-height: 40px">
+                            <li>Website: <a href="https://dogily.vn/" class="footer_link">https://dogily.vn/</a></li>
+                            <li>Facebook: <a href="https://www.facebook.com/DogilyPetshop" class="footer_link">https://www.facebook.com/DogilyPetshop</a></li>
+                            <li>Youtube: <a href="https://www.youtube.com/c/DogilyPetshop/" class="footer_link">https://www.youtube.com/c/DogilyPetshop/</a></li>
+                            <li>Instagram: <a href="https://www.instagram.com/dogilypetshop/" class="footer_link">https://www.instagram.com/dogilypetshop/</a></li>
+                            <li>
+                                <i class="fa-solid fa-tty"></i>
+                                Điện thoại:
+                                <a href="#" class="footer_link">0965 086 079</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container col-10">
+    <h5 class="m-2" style="font-weight: 600">CÓ THỂ BẠN THÍCH</h5>
+    <div class="row">
+        @Html.Partial("GetRelatedPro")
+    </div>
+</div>
+@Html.Partial("~/Views/Home/CustomerCheckin.cshtml")
+
+@Html.Partial("~/Views/Home/CaringVideos.cshtml")
+<script>
+    const increase = () => {
+        document.querySelector('.product_amount').innerHTML++
+    }
+    const decrease = () => {
+        if (document.querySelector('.product_amount').innerHTML > 1) {
+            document.querySelector('.product_amount').innerHTML--
+        }
+    }
+</script>
+
+
+
+
+
+
+
+
+
+

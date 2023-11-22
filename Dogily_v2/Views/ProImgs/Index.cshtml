@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Dogily_v2.Models.ProImg>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-warning">QUẢN LÝ ẢNH</h2>
+
+<p>
+    @Html.ActionLink("Thêm ảnh", "Create", null, new {@class="btn btn-outline-warning"})
+</p>
+<table class="table">
+    <tr>
+        <th class="text-warning col-5">
+            @Html.DisplayNameFor(model => model.ImgURL)
+        </th>
+        <th class="text-warning col-1">
+            @Html.DisplayNameFor(model => model.MainImg)
+        </th>
+        <th class="text-warning col-3">
+            @Html.DisplayNameFor(model => model.Product.Title)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="col-5">
+            @Html.DisplayFor(modelItem => item.ImgURL)
+        </td>
+        <td class="col-1">
+            @Html.DisplayFor(modelItem => item.MainImg)
+        </td>
+        <td class="col-3">
+            @Html.DisplayFor(modelItem => item.Product.Title)
+        </td>
+        <td class="col-3">
+            @Html.ActionLink("Edit", "Edit", new { id=item.ImgID }, new {@class="btn btn-outline-warning"})
+            @Html.ActionLink("Details", "Details", new { id=item.ImgID }, new { @class = "btn btn-outline-warning" })
+            @Html.ActionLink("Delete", "Delete", new { id=item.ImgID }, new { @class = "btn btn-outline-warning" })
+        </td>
+    </tr>
+}
+
+</table>

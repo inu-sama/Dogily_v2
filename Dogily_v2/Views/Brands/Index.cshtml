@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Dogily_v2.Models.Brand>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th class="col-8">
+            @Html.DisplayNameFor(model => model.About)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country.CountryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrandName)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="col-8">
+            @Html.DisplayFor(modelItem => item.About)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country.CountryName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.BrandName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BrandName }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BrandName }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BrandName })
+        </td>
+    </tr>
+}
+
+</table>

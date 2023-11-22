@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/MasterLayout.cshtml";
+    ViewBag.TotalPro = 0;
+}
+
+<form class="container col-10 mb-5">
+    <p class="pro_nav m-3">
+        Bạn có mã ưu đãi?
+        <a id="voucher" data-bs-toggle="collapse" href="#voucher_input" aria-expanded="false" aria-controls="voucher_input">Ấn vào đây để nhập mã</a>
+    </p>
+    <div class="collapse px-5 py-3 mb-4" id="voucher_input">
+        <p class="pro_nav mb-2">Nếu bạn có mã giảm giá, vui lòng điền vào phía bên dưới.</p>
+        <div class="input-group rounded">
+            <input type="text" class="form-control mb-3" placeholder="Mã ưu đãi" id="discunt_code">
+            <button class="input-group-text btn rounded mb-3" style="background-color: #d69704; color: #fff; font-weight: 700">ÁP DỤNG</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-7 gx-3 p-3 mb-5" style="border-top: 2px solid #c0c0c0">
+            <h5 class="mt-2" style="font-size: 1.1rem; font-weight: 700">THÔNG TIN THANH TOÁN</h5>
+            <label class="form-label" for="full_name">Họ và tên *</label>
+            <input class="form-control mb-3" type="text" id="full_name" value="" placeholder="Họ tên của bạn" />
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" for="phone">
+                        Số điện thoại *
+                    </label>
+                    <input class="form-control" type="tel" id="phone" value="" placeholder="Số điện thoại của bạn" />
+                </div>
+                <div class="col-6">
+                    <label class="form-label" for="email">
+                        Địa chỉ email *
+                    </label>
+                    <input class="form-control" type="email" id="email" value="" placeholder="Email của bạn" />
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" for="city">
+                        Tỉnh/Thành phố *
+                    </label>
+                    <select class="form-select" id="city">
+                        <option value="Hà Nội">Hà Nội</option>
+                        <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                        <option value="An Giang">An Giang</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" for="district">
+                        Quận/Huyện *
+                    </label>
+                    <select class="form-select">
+                        <option value="Quận 1">Quận 1</option>
+                        <option value="Quận 2">Quận 2</option>
+                        <option value="Quận 3">Quận 3</option>
+                        <option value="Quận 4">Quận 4</option>
+                        <option value="Quận 5">Quận 5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-6">
+                    <label class="form-label" for="address">
+                        Địa chỉ *
+                    </label>
+                    <input class="form-control" type="text" id="address" value="" placeholder="Ví dụ: Số 20, ngõ 90" />
+                </div>
+            </div>
+            <h5 class="mt-2" style="font-size: 1.1rem; font-weight: 700">THÔNG TIN BỔ SUNG</h5>
+            <label class="form-label" for="additional">Ghi chú đơn hàng (tuỳ chọn)</label>
+            <input class="form-control mb-5" type="text"
+                   id="additional" value="" placeholder="Ghi chú về đơn hàng, ví dụ: thời gian hay chỉ dẫn địa điểm giao hàng chi tiết hơn." />
+        </div>
+        <div class="col-5 gx-3 mb-5">
+            <div class="p-4" style="border: 2px solid #d69704">
+                <h5 class="mt-2" style="font-size: 1.1rem; font-weight: 700">ĐƠN HÀNG CỦA BẠN</h5>
+                <div class="row" style="border-bottom: 2px solid #c0c0c0">
+                    <b class="col-6 my-2" style="text-align: left; font-weight: 600">SẢN PHẨM</b>
+                    <b class="col-6 my-2" style="text-align: right; font-weight: 600">TẠM TÍNH</b>
+                </div>
+                <div class="row" style="border-bottom: 1px solid #c0c0c0">
+                    <b class="col-6 my-2" style="text-align: left; font-weight: 600">Tạm tính</b>
+                    <p class="col-6 my-2" style="text-align: right; font-weight: 700; font-size: 1.3rem; margin: 0; color: #f80000">
+                        0<sup>₫</sup>
+                    </p>
+                </div>
+                <div class="row mb-3" style="border-bottom: 2px solid #c0c0c0">
+                    <b class="col-6 my-2" style="text-align: left; font-weight: 600">Tổng</b>
+                    <p class="col-6 my-2" style="text-align: right; font-weight: 700; font-size: 1.3rem; margin: 0; color: #f80000">
+                        0<sup>₫</sup>
+                    </p>
+                </div>
+                <b class="col-12" style="text-align: left; font-weight: 600">Trả tiền mặt khi nhận hàng</b>
+                <p class="col-12 mb-3" style="text-align: left; font-weight: 300; margin: 0">
+                    Trả tiền mặt khi giao hàng
+                </p>
+                <input class="btn mb-3 px-3" style="background-color: #000099; color: #fff; font-weight: 600" type="submit" id="confirm_order" value="ĐẶT HÀNG" />
+            </div>
+        </div>
+    </div>
+</form>
+

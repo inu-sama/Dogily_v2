@@ -1,0 +1,18 @@
+﻿@model Dogily_v2.Models.ViewModel.DetailProVM
+
+@{ 
+    var related = Model.RelatedProduct;
+}
+<div class="row">
+    @foreach (var item in related)
+    {
+        <a @*href="/Home/ProductDetail"*@ href="@Url.Action("DetailProduct", "DetailProVM", new {id = item.IDPro})" class="col-2 g-3 footer_link" style="text-align: center">
+            <img src="https://cdn-icons-png.flaticon.com/512/2553/2553673.png" class="img-fluid rounded" />
+            <p align="center" style="margin: 2% 0; font-weight: 600; width: 90%; margin: 2% 5% 0;">
+                @Html.DisplayFor(model => item.Title)
+            </p>
+            <p style="font-size: 1.2rem; font-weight: 600; color: #f80000; padding: 0;">@Html.DisplayFor(model => item.Price)<sup>₫</sup></p>
+        </a>
+    }
+</div>
+

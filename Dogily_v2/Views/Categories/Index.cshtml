@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Dogily_v2.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-warning">QUẢN LÝ DANH MỤC SẢN PHẨM</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-outline-warning" })
+</p>
+<table class="table">
+    <tr>
+        <th class="col-1 text-warning">
+            @Html.DisplayNameFor(model => model.IDCate)
+        </th>
+        <th class="col-2 text-warning">
+            @Html.DisplayNameFor(model => model.NameCate)
+        </th>
+        <th class="col-5 text-warning">
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th class="col-1 text-warning">
+            @Html.DisplayNameFor(model => model.For)
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="col-1">
+                @Html.DisplayFor(modelItem => item.IDCate)
+            </td>
+            <td class="col-2">
+                @Html.DisplayFor(modelItem => item.NameCate)
+            </td>
+            <td class="col-5">
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td class="col-1">
+                @Html.DisplayFor(modelItem => item.For)
+            </td>
+            <td class="col-3">
+                @Html.ActionLink("Edit", "Edit", new { id = item.IDCate }, new { @class = "btn btn-outline-warning" })
+                @Html.ActionLink("Details", "Details", new { id = item.IDCate }, new { @class = "btn btn-outline-warning" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.IDCate }, new { @class = "btn btn-outline-warning" })
+            </td>
+        </tr>
+    }
+
+</table>

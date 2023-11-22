@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link rel="icon" href="https://dogily.vn/wp-content/uploads/2021/10/cropped-favicon-32x32.png" sizes="32x32">
+    <link rel="icon" href="https://dogily.vn/wp-content/uploads/2021/10/cropped-favicon-192x192.png" sizes="192x192">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3e21e075ef.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body::-webkit-scrollbar {
+            width: 16px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: #7c6c41;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background: #fcb000;
+            border-radius: 8px;
+        }
+
+        .topnav a {
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .footer_link {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .footer_link:hover {
+            color: #fcb000;
+        }
+
+        .dog_link {
+            color: #c0c0c0;
+            text-decoration: none;
+        }
+
+        .dog_link:hover {
+            color: #fff;
+        }
+
+        .brand_icon {
+            font-size: 1.3rem;
+            color: #fff;
+            border-radius: 50%;
+            padding: 2%;
+        }
+
+        .payment_icon {
+            font-size: 2.3rem;
+            color: #808080
+        }
+
+        .pro_nav {
+            color: #606060;
+            margin: 0;
+        }
+
+        .pro_nav a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .pro_nav a:hover {
+            color: #000;
+        }
+
+        .form-label {
+            font-weight: 600
+        }
+
+        #voucher:hover {
+            color: #fcb000
+        }
+
+        #voucher_input {
+            border: 2px dashed #d69704;
+        }
+
+        .cart_icon {
+            position: relative;
+            text-decoration: none;
+        }
+
+        .cart_capacity {
+            height: 20px;
+            width: 20px;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            background-color: #3a3884;
+            position: absolute;
+            top: -50%;
+            right: 5%;
+            font-size: 0.7rem;
+            font-weight: 700
+        }
+
+        .chat {
+            color: #d69704;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 1px solid #d69704;
+        }
+
+        .chat:hover {
+            color: #fff;
+            background-color: #d69704;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="container col-10">
+            <div class="row">
+                <div class="col-2">
+                    <a href="/Home/Index">
+                        <img src="https://dogily.vn/wp-content/uploads/2020/07/dogily-logo.png" alt="Dogily Petshop – Chó mèo cảnh, thú cưng" class="img-fluid m-2" />
+                    </a>
+                </div>
+                <div class="col-6">
+                    <div class="input-group p-3">
+                        <input type="text" class="form-control rounded-start-pill py-2 px-3" style="border: 3px solid #fcb000; font-size: 0.8rem; height: 50px" placeholder="Tìm kiếm...">
+                        <span class="input-group-text rounded-end-pill" id="addon-wrapping" style="background-color: #fcb000; width: 10%; text-align: center; border: 3px solid #fcb000">
+                            <i class="fa-solid fa-magnifying-glass" style="color: #fff;"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-4" style="display: flex; align-items: center; justify-content: center;">
+                    <span class="p-2">
+                        <img src="https://dogily.vn/wp-content/plugins/gtranslate/flags/24/vi.png" alt="vi" class="w-50" />
+                        <b>VN</b>
+                    </span>
+                    <span class="p-2">
+                        <img src="https://dogily.vn/wp-content/plugins/gtranslate/flags/24/en.png" alt="en" class="w-50" />
+                        EN
+                    </span>
+                    <span class="p-2">
+                        <img src="https://dogily.vn/wp-content/plugins/gtranslate/flags/24/th.png" alt="th" />
+                        TH
+                    </span>
+                    <span class="p-2">
+                        <img src="https://dogily.vn/wp-content/plugins/gtranslate/flags/24/km.png" alt="km" />
+                        KM
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="background-color: #fcb000; position: sticky; top: 0; z-index: 100">
+        <div class="container col-10">
+            <div class="row">
+                <div class="col-2" style="text-align: right">
+                    <a href="@Url.Action("Create", "Users")" class="cart_icon" style="color: #fff">
+                        <i class="fa-solid fa-user p-2 m-2 rounded" style="box-shadow: 0 0 1px inset #000; background-color: #ab7903"></i>
+                    </a>
+                </div>
+                <div class="col-8">
+                    <nav class="navbar navbar-expand" style="display: flex; justify-content: right">
+                        <ul class="navbar-nav topnav">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active">GIỚI THIỆU</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active">CHÓ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active">MÈO</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="/Home/Category" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    CHÓ CẢNH
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="/Home/Category" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    MÈO CẢNH
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="/Home/Category" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    ĐỒ CHO CHÓ
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="/Home/Category" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    ĐỒ CHO MÈO
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active">TIN TỨC</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/Home/Contact" class="nav-link active">LIÊN HỆ</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-2" style="text-align: right">
+                    <a href="/ShoppingCart/ShowCart" class="cart_icon" style="color: #fff">
+                        <i class="fa-solid fa-cart-shopping p-2 m-2 rounded" style="box-shadow: 0 0 1px inset #000; background-color: #ab7903"></i>
+                        @Html.Action("BagCart", "ShoppingCart")
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <div class="container-fluid" style="padding-bottom: 5%; box-shadow: 0 -1px 5px #c0c0c0">
+        <div class="container col-10">
+            <div class="row">
+                <div class="col-8 g-4">
+                    <div class="row">
+                        <div class="col-2">
+                            <img src="https://dogily.vn/wp-content/uploads/2022/07/Logo-Footer-3.png" class="img-fluid" />
+                        </div>
+                        <div class="col-4">
+                            <p style="font-size: 1rem; font-weight: 600; color: #2e3192; word-spacing: 2px; margin: 2% 0">
+                                Nơi giúp bạn có nhiều thông tin bổ ích trong việc chọn, nuôi chó mèo, chăm sóc thú cưng tại gia đình.
+                            </p>
+                        </div>
+                        <div class="col-6">
+                            <img src="https://dogily.vn/wp-content/uploads/2022/07/FanPage-Dogily.jpg" class="img-fluid rounded" />
+                        </div>
+                    </div>
+                    <div style="margin-top: 5.5%">
+                        <p style="font-weight: 700; width: 100%; border-bottom: 1px solid #dc8080">Địa chỉ:</p>
+                        <ul style="padding: 0 2%; line-height: 200%">
+                            <li>Hộ kinh doanh Dogily Meowgo</li>
+                            <li>MST: 42039935A</li>
+                            <li>Ngày cấp: 07/04/2022</li>
+                            <li>Nơi cấp: UBND Thành phố Đà Lạt</li>
+                            <li>Địa chỉ: <b>29/1 Lê Hồng Phong, phường 4, Tp Đà Lạt, tỉnh Lâm Đồng</b></li>
+                            <li><b>Pet Farm Đà Lạt:</b> Km 2, đường Quảng Thắng, xã Xuân Thọ, Tp. Đà Lạt, tỉnh Lâm Đồng</li>
+                        </ul>
+                        <a href="#" class="footer_link"><p>Quy chế hoạt động</p></a>
+                        <a href="#" class="footer_link"><p>Chính sách bảo mật</p></a>
+                        <a href="#" class="footer_link"><p>Quy trình đặt hàng và thanh toán</p></a>
+                        <a href="#" class="footer_link"><p>Chính sách giao hàng</p></a>
+                        <a href="#" class="footer_link"><p>Chính sách đổi trả</p></a>
+                    </div>
+                </div>
+                <div class="col-4 g-4">
+                    <div>
+                        <p style="font-weight: 700; width: 100%; border-bottom: 1px solid #dc8080;">Thông báo</p>
+                        <small style="font-size: 0.7rem; margin: 0">
+                            Tuân thủ Nghị định số 185/2013/NĐ-CP của Chính phủ và luật quảng cáo số 16/2012/ QH13
+                            về kinh doanh bán hàng qua mạng,
+                            Dogily.vn không mua bán sản phẩm online trực tuyến qua mạng internet.
+                            Website chỉ là kênh thông tin chia sẻ kinh nghiệm nuôi, chăm sóc chó mèo, thú cưng
+                            và giới thiệu các đồ dùng, dịch vụ kèm theo.
+                        </small>
+                    </div>
+                    <div style="margin-top: 5.5%">
+                        <p style="font-weight: 700; width: 100%; border-bottom: 1px solid #dc8080">Các giống chó mèo cảnh phổ biến</p>
+                        <p><a href="#" class="footer_link">Chó Poodle</a>, <a href="#" class="footer_link">chó Phốc sóc</a>, <a href="#" class="footer_link">chó Corgi</a></p>
+                        <p><a href="#" class="footer_link">Chó Alaska</a>, <a href="#" class="footer_link">chó Samoyed</a>, <a href="#" class="footer_link">chó Husky</a></p>
+                        <p><a href="#" class="footer_link">Chó Pug</a>, <a href="#" class="footer_link">chó Bulldog</a>, <a href="#" class="footer_link">chó Bull Pháp</a></p>
+                        <p><a href="#" class="footer_link">Chó Akita</a>, <a href="#" class="footer_link">chó Shiba</a>, <a href="#" class="footer_link">chó Collie</a></p>
+                        <p><a href="#" class="footer_link">Mèo Anh lông ngắn</a>, <a href="#" class="footer_link">mèo tai cụp</a>, <a href="#" class="footer_link">mèo Munchkin</a></p>
+                        <p>
+                            <span style="color: #808080; font-size: 0.9rem; font-weight: 700">Mạng xã hội Dogily Farm & Petshop: </span>
+                            <i style="background-color: #2e467e" class="brand_icon fa-brands fa-facebook"></i>
+                            <i style="background-color: #2f5476" class="brand_icon fa-brands fa-instagram"></i>
+                            <i style="background-color: #000" class="brand_icon fa-brands fa-tiktok"></i>
+                            <i style="background-color: #1d6095" class="brand_icon fa-brands fa-twitter"></i>
+                            <i style="background-color: #000" class="brand_icon fa-regular fa-envelope"></i>
+                            <i style="background-color: #41a248" class="brand_icon fa-solid fa-phone"></i>
+                            <i style="background-color: #a21c1a" class="brand_icon fa-brands fa-pinterest"></i>
+                            <i style="background-color: #005b92" class="brand_icon fa-brands fa-linkedin"></i>
+                            <i style="background-color: #9c281c" class="brand_icon fa-brands fa-youtube"></i>
+                            <i style="background-color: #007ab7" class="brand_icon fa-brands fa-500px"></i>
+                            <i style="background-color: #4387bb" class="brand_icon fa-brands fa-telegram"></i>
+                        </p>
+                        <p>
+                            <i class="payment_icon fa-brands fa-cc-visa"></i>
+                        </p>
+                        <p>
+                            <img src="https://thucung.maudemo.com/wp-content/uploads/2022/07/dmca_premi_badge_7.png" style="width: 12%" />
+                            <img src="https://thucung.maudemo.com/wp-content/uploads/2022/07/icon-bocongthuong.png" style="margin: 0 5%" />
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="background-color: #5b5b5b; margin: 0; height: 105px;">
+        <div class="container col-10" style="text-align: center">
+            <p style="color: #c0c0c0; font-size: 0.95rem; padding-top: 1%;">
+                Các giống chó:
+                <a href="#" class="dog_link">chó phốc sóc</a>,
+                <a href="#" class="dog_link">chó poodle</a>,
+                <a href="#" class="dog_link">chó corgi</a>,..
+            </p>
+            <p style="color: #fff; font-size: 0.95rem;">Bản quyền 2023 © <b>Dogily PetShop</b></p>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/bootstrap.js"></script>
+</body>
+</html>

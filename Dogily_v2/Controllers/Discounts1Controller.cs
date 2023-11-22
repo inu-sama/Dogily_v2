@@ -1,0 +1,127 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using Dogily_v2.Models;
+
+namespace Dogily_v2.Controllers
+{
+    public class Discounts1Controller : Controller
+    {
+        private DogilyEntities6 db = new DogilyEntities6();
+
+        // GET: Discounts1
+        public ActionResult Index()
+        {
+            return View(db.Discounts.ToList());
+        }
+
+        // GET: Discounts1/Details/5
+        public ActionResult Details(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Discount discount = db.Discounts.Find(id);
+            if (discount == null)
+            {
+                return HttpNotFound();
+            }
+            return View(discount);
+        }
+
+        // GET: Discounts1/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Discounts1/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "DiscountCode,DiscountName,DiscountPercentage,DueDate")] Discount discount)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Discounts.Add(discount);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(discount);
+        }
+
+        // GET: Discounts1/Edit/5
+        public ActionResult Edit(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Discount discount = db.Discounts.Find(id);
+            if (discount == null)
+            {
+                return HttpNotFound();
+            }
+            return View(discount);
+        }
+
+        // POST: Discounts1/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "DiscountCode,DiscountName,DiscountPercentage,DueDate")] Discount discount)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(discount).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(discount);
+        }
+
+        // GET: Discounts1/Delete/5
+        public ActionResult Delete(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Discount discount = db.Discounts.Find(id);
+            if (discount == null)
+            {
+                return HttpNotFound();
+            }
+            return View(discount);
+        }
+
+        // POST: Discounts1/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(string id)
+        {
+            Discount discount = db.Discounts.Find(id);
+            db.Discounts.Remove(discount);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
+}

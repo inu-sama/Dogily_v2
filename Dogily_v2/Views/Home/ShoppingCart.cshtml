@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "ShoppingCart";
+    Layout = "~/Views/Shared/MasterLayout.cshtml";
+}
+
+<div class="container col-10">
+    <div class="row">
+        <div class="col-7 g-4 mb-5">
+            <div class="row py-1 my-1" style="border-bottom: 2px solid #c0c0c0">
+                <div class="col-5">
+                    <b>SẢN PHẨM</b>
+                </div>
+                <div class="col-2 px-5">
+                    <b>GIÁ</b>
+                </div>
+                <div class="col-3 px-5">
+                    <b>SỐ LƯỢNG</b>
+                </div>
+                <div class="col-2">
+                    <b>TẠM TÍNH</b>
+                </div>
+            </div>
+            <div class="row ordered_pro py-3" style="border-bottom: 1px solid #c0c0c0">
+                <div class="col-1">
+                    <a href="#" class="col-2" style="font-size: 1.5rem">
+                        <i class="fa-regular fa-circle-xmark"></i>
+                    </a>
+                </div>
+                <div class="col-2">
+                    <img src="https://dogily.vn/wp-content/uploads/2023/08/14c3cff8342503398ffd12edc8d813a8-400x400.jpeg" class="img-fluid rounded w-75" />
+                </div>
+                <div class="col-2 p-0" style="font-size: 0.76rem;">
+                    <a href="/Home/ProductDetail" class="footer_link">Nhà nệm cho chó mèo</a>
+                </div>
+                <div class="col-2 px-5" style="font-size: 1.3rem; color: #f80000; font-weight: 700;">
+                    785,000<sup>₫</sup>
+                </div>
+                <div class="col-3 px-5">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-outline-secondary btn-sm">
+                            <i class="fa-solid fa-minus" style="font-size: 0.5rem"></i>
+                        </button>
+                        <button type="button" class="btn" disabled>1</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm">
+                            <i class="fa-solid fa-plus" style="font-size: 0.5rem"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-2" style="text-align: right; font-size: 1.3rem; color: #f80000; font-weight: 700">
+                    785,000<sup>₫</sup>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-4 p-0">
+                    @Html.ActionLink("← TIẾP TỤC XEM SẢN PHẨM", "Index", "Home", new { @class = "btn btn-outline-warning" })
+                </div>
+                <div class="col-4">
+                    <button disabled class="btn btn-warning">CẬP NHẬT GIỎ HÀNG</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-5 g-4 mb-5">
+            <div class="row p-1 m-1" style="border-bottom: 2px solid #c0c0c0">
+                <div class="col-12">
+                    <b>CỘNG GIỎ HÀNG</b>
+                </div>
+            </div>
+            <div class="row p-1 m-1 mt-3" style="border-bottom: 1px solid #c0c0c0">
+                <div class="col-6">
+                    Tạm tính
+                </div>
+                <div class="col-6" style="text-align: right; font-size: 1.3rem; color: #f80000; font-weight: 700">
+                    785,000<sup>₫</sup>
+                </div>
+            </div>
+            <div class="row p-1 m-1" style="border-bottom: 2px solid #c0c0c0">
+                <div class="col-6">
+                    Tổng
+                </div>
+                <div class="col-6" style="text-align: right; font-size: 1.3rem; color: #f80000; font-weight: 700">
+                    785,000<sup>₫</sup>
+                </div>
+            </div>
+            <a href="/Home/Checkout" class="btn m-3" style="background-color: #000099; color: #fff; font-weight: 600; width: 95%">
+                TIẾN HÀNH THANH TOÁN
+            </a>
+            <p style="text-align: left; font-weight: 600; border-bottom: 2px solid #c0c0c0; margin: 0;">
+                <i class="fa-solid fa-tag fa-flip-horizontal" style="color: #c0c0c0"></i>
+                Phiếu ưu đãi
+            </p>
+            <input class="form-control my-3" style="" type="text" id="voucher" value="" placeholder="Mã ưu đãi" />
+            <button class="btn btn-outline-secondary col-12 mb-5">Áp dụng</button>
+        </div>
+    </div>
+</div>
+
+
+
